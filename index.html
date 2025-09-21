@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para Minha Namorada</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f9c5d1, #e91e63);
+        color: white;
+        text-align: center;
+        padding: 50px 20px;
+        overflow: auto; 
+        height: 100vh; 
+        margin: 0; 
+        display: flex;
+        align-items: center; 
+        justify-content: center; 
+      }
+
+      #passwordModal {
+        padding: 35px 40px;
+        border-radius: 25px;
+        box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        background: #fff0f6; 
+        padding: 35px 40px;
+        border-radius: 25px;
+        box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+        text-align: center;
+        max-width: 280px; 
+        width: 90%;
+        color: #ad1457;
+        margin: 0 auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Título do modal */
+      .modal-content h2 {
+        margin-bottom: 20px;
+        color: #ad1457;
+        font-weight: 700;
+        font-size: 1.6rem;
+        text-shadow: 0 0 8px #f48fb1;
+      }
+
+      /* Input senha */
+      .modal-content input {
+        width: 100%;
+        padding: 12px 10px;
+        margin-top: 10px;
+        font-size: 16px;
+        border: 2px solid #f48fb1;
+        border-radius: 15px;
+        outline: none;
+        transition: border-color 0.3s ease;
+        font-weight: 600;
+        background: #ffe6f0;
+        box-shadow: inset 0 1px 5px rgba(255, 182, 193, 0.6);
+      }
+
+      .modal-content input:focus {
+        border-color: #e91e63;
+        box-shadow: 0 0 8px #e91e63;
+      }
+
+      /* Botão entrar */
+      .modal-content button {
+        margin-top: 20px;
+        padding: 12px 30px;
+        font-size: 1rem;
+        background-color: #e91e63;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 700;
+        box-shadow: 0 4px 15px rgba(233, 30, 99, 0.7);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .modal-content button:hover {
+        background-color: #c2185b;
+        box-shadow: 0 6px 20px rgba(194, 24, 91, 0.8);
+      }
+
+      .container, #startButton {
+        display: none !important;
+      }
+
+      .heart {
+        position: fixed;
+        top: -30px;
+        width: 20px;
+        height: 20px;
+        background-color: #e91e63;
+        left: 50%;
+        animation: fall linear infinite;
+        transform: rotate(45deg);
+        z-index: 1000;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #e91e63;
+        border-radius: 50%;
+      }
+
+      .heart::before {
+        top: -10px;
+        left: 0;
+      }
+
+      .heart::after {
+        left: -10px;
+        top: 0;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(100vh) rotate(45deg);
+        }
+      }
+
+      #heartsCanvas {
+          display: none !important;
+      }
+
+      h1, .tempo-amor, .unidades, .unidade, p, video, button:not(.modal-content button), #surpresa, .slideshow-container, .slide {
+          display: none !important; 
+      }
+    </style>
+  </head>
+
+  <body class="home-page">
+    <div id="passwordModal">
+      <div class="modal-content">
+        <h2>Digite a senha 💖</h2>
+        <input type="password" id="senhaInput" placeholder="Senha" />
+        <button onclick="verificarSenha()">Entrar</button>
+      </div>
+    </div>
+
+    <div class="container" style="display: none" id="mainContent">
+      <button id="startButton" class="btn-start">💗 Clique Para Começar</button>
+    </div>
+
+    <canvas id="heartsCanvas"></canvas>
+
+    <script>
+      function verificarSenha() {
+        const senhaCorreta = atob("MDcwNA=="); // 0704
+        const senhaDigitada = document.getElementById("senhaInput").value;
+
+        if (senhaDigitada === senhaCorreta) {
+          window.location.href = "amor.html";
+        } else {
+          alert("Senha incorreta! 💔");
+        }
+      }
+    </script>
+    </body>
+</html>
